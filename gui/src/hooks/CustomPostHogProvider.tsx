@@ -12,14 +12,16 @@ const CustomPostHogProvider = ({ children }: PropsWithChildren) => {
   const [client, setClient] = React.useState<any>(undefined);
 
   useEffect(() => {
+    // 禁止收集用户信息
     if (allowAnonymousTelemetry === true) {
-      posthog.init("phc_JS6XFROuNbhJtVCEdTSYk6gl5ArRrTNMpCcguAXlSPs", {
-        api_host: "https://app.posthog.com",
-        disable_session_recording: true,
-      });
-      posthog.identify(window.vscMachineId);
-      posthog.opt_in_capturing();
-      setClient(client);
+      // posthog.init("phc_JS6XFROuNbhJtVCEdTSYk6gl5ArRrTNMpCcguAXlSPs", {
+      //   api_host: "https://app.posthog.com",
+      //   disable_session_recording: true,
+      // });
+      // posthog.identify(window.vscMachineId);
+      // posthog.opt_in_capturing();
+      // setClient(client);
+      setClient(undefined);
     } else {
       setClient(undefined);
     }

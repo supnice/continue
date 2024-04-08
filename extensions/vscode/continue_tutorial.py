@@ -1,11 +1,5 @@
 """
-_________               _____ _____                       
-__  ____/______ _______ __  /____(_)_______ ____  _______ 
-_  /     _  __ \__  __ \_  __/__  / __  __ \_  / / /_  _ \
-/ /___   / /_/ /_  / / // /_  _  /  _  / / // /_/ / /  __/
-\____/   \____/ /_/ /_/ \__/  /_/   /_/ /_/ \__,_/  \___/ 
-
-Welcome to Continue! This is a 2 minute tutorial.
+Welcome to Xiaotie! This is a 2 minute tutorial.
 
 You can either
 - follow the instructions on your own, or
@@ -28,7 +22,7 @@ def mysterious_function(x):
 
 
 """Step 2: Use the keyboard shortcut [Cmd+L] to
-select the code and toggle the Continue input box"""
+select the code and toggle the Xiaotie input box"""
 
 """Step 3: Ask a question and press Enter"""
 
@@ -78,4 +72,3 @@ print_sum(["a", "b", "c"])
 
 # endregion
 
-# Ready to learn more? Check out the Continue documentation: https://continue.dev/docs

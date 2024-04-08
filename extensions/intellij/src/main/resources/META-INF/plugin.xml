@@ -1,8 +1,8 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.continuedev.continueintellijextension</id>
-    <name>Continue</name>
-    <vendor>continue-dev</vendor>
+    <name>Xiaotie</name>
+    <vendor>12306</vendor>
     <depends>com.intellij.modules.platform</depends>
     <idea-version since-build="223.0"/>
 
@@ -12,7 +12,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <editorFactoryListener implementation="com.github.continuedev.continueintellijextension.autocomplete.AutocompleteEditorListener"/>
-        <toolWindow id="Continue" anchor="right" icon="/tool-window-icon.png"
+        <toolWindow id="Xiaotie" anchor="right" icon="/tielu-logo-icon.png"
                     factoryClass="com.github.continuedev.continueintellijextension.toolWindow.ContinuePluginToolWindowFactory"/>
         <projectService id="ContinuePluginService"
                         serviceImplementation="com.github.continuedev.continueintellijextension.services.ContinuePluginService"/>
@@ -27,7 +27,7 @@
                 parentId="tools"
                 instance="com.github.continuedev.continueintellijextension.services.ContinueExtensionConfigurable"
                 id="com.github.continuedev.continueintellijextension.services.ContinueExtensionConfigurable"
-                displayName="Continue"/>
+                displayName="Xiaotie"/>
         <applicationService
                 serviceImplementation="com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings"/>
     </extensions>

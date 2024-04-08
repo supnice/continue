@@ -1,81 +1,123 @@
-> 🎉 **Tab autocomplete now available in pre-release (experimental)**
+[//]: # (> 🎉 **Tab autocomplete now available in pre-release &#40;experimental&#41;**)
 
-![Continue logo](media/c_d.png)
+[//]: # (![Xiaotie logo]&#40;media/c_d.png&#41;)
 
-<h1 align="center">Continue</h1>
+<h1 align="center">Xiaotie</h1>
 
 <div align="center">
 
-**[Continue](https://continue.dev/docs) is an open-source autopilot for VS Code and JetBrains—the easiest way to code with any LLM**
+**[Xiaotie](https://continue.dev/docs) is an autopilot for VS Code and JetBrains—the easiest way to code with any LLM**
 
 </div>
 
 <div align="center">
 
-<a target="_blank" href="https://opensource.org/licenses/Apache-2.0" style="background:none">
-    <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" style="height: 20px;" />
-</a>
-<a target="_blank" href="https://continue.dev/docs" style="background:none">
-    <img src="https://img.shields.io/badge/continue_docs-%23BE1B55" style="height: 20px;" />
-</a>
-<a target="_blank" href="https://discord.gg/vapESyrFmJ" style="background:none">
-    <img src="https://img.shields.io/badge/discord-join-continue.svg?labelColor=191937&color=6F6FF7&logo=discord" style="height: 20px;" />
-</a>
+[//]: # ()
+[//]: # (<a target="_blank" href="https://opensource.org/licenses/Apache-2.0" style="background:none">)
 
-<p></p>
+[//]: # (    <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" style="height: 20px;" />)
 
-</div>
+[//]: # (</a>)
 
-# ⏩ Features
+[//]: # (<a target="_blank" href="https://continue.dev/docs" style="background:none">)
 
-# 🔎 Ask about highlighted code
+[//]: # (    <img src="https://img.shields.io/badge/continue_docs-%23BE1B55" style="height: 20px;" />)
 
-![Editing With Continue](media/readme.gif)
+[//]: # (</a>)
 
-Highlight + select code sections and ask a question to get another perspective
+[//]: # (<a target="_blank" href="https://discord.gg/vapESyrFmJ" style="background:none">)
 
-- “how can I set up a Prisma schema that cascades deletes?”
-- “where in the page should I be making this request to the backend?”
-- “how can I communicate between these iframes?”
+[//]: # (    <img src="https://img.shields.io/badge/discord-join-continue.svg?labelColor=191937&color=6F6FF7&logo=discord" style="height: 20px;" />)
 
-# 🪄 Reference context inline
+[//]: # (</a>)
 
-![Reference context inline](media/image.gif)
+[//]: # ()
+[//]: # (<p></p>)
 
-- "@diff check my commit for mistakes"
-- "how does @server.py stream responses?"
-- "how do i fix this error in the @terminal?"
+[//]: # ()
+[//]: # (</div>)
 
-# ⚡️ Get completions directly in your editor
+[//]: # ()
+[//]: # (# ⏩ Features)
 
-![Continue autocomplete](media/autocomplete.gif)
+[//]: # ()
+[//]: # (# 🔎 Ask about highlighted code)
 
-# ✏️ Edit in natural language
+[//]: # ()
+[//]: # (![Editing With Continue]&#40;media/readme.gif&#41;)
 
-Highlight + select a section of code and instruct Continue to refactor it
+[//]: # ()
+[//]: # (Highlight + select code sections and ask a question to get another perspective)
 
-- “/edit migrate this digital ocean terraform file into one that works for GCP”
-- “/edit change this plot into a bar chart in this dashboard component”
-- “/edit rewrite this function to be async”
+[//]: # ()
+[//]: # (- “how can I set up a Prisma schema that cascades deletes?”)
 
-![Above line edit](media/above-line-edit.gif)
+[//]: # (- “where in the page should I be making this request to the backend?”)
 
-# 🚀 Generate files from scratch
+[//]: # (- “how can I communicate between these iframes?”)
 
-![Generate files from scratch](media/scratch.gif)
+[//]: # ()
+[//]: # (# 🪄 Reference context inline)
 
-Open a blank file, <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>, and let Continue start new Python scripts, React components, etc.
+[//]: # ()
+[//]: # (![Reference context inline]&#40;media/image.gif&#41;)
 
-- “here is a connector for postgres, now write one for kafka”
-- “make an IAM policy that creates a user with read-only access to S3”
-- “use this schema to write me a SQL query that gets recently churned users”
+[//]: # ()
+[//]: # (- "@diff check my commit for mistakes")
 
-# Getting Started
+[//]: # (- "how does @server.py stream responses?")
 
-You can try out Continue for free using a proxy server that securely makes calls with our API key to models like GPT-4, Gemini Pro, and Phind CodeLlama via OpenAI, Google, and Together respectively.
+[//]: # (- "how do i fix this error in the @terminal?")
 
-Once you're ready to use your own API key or a different model / provider, press the `+` button in the bottom left to add a new model to your `config.json`. Learn more about the models and providers [here](https://continue.dev/docs/model-setup/overview).
+[//]: # ()
+[//]: # (# ⚡️ Get completions directly in your editor)
 
-## License
+[//]: # ()
+[//]: # (![Continue autocomplete]&#40;media/autocomplete.gif&#41;)
 
-[Apache 2.0 © 2023 Continue Dev, Inc.](./LICENSE)
+[//]: # ()
+[//]: # (# ✏️ Edit in natural language)
+
+[//]: # ()
+[//]: # (Highlight + select a section of code and instruct Continue to refactor it)
+
+[//]: # ()
+[//]: # (- “/edit migrate this digital ocean terraform file into one that works for GCP”)
+
+[//]: # (- “/edit change this plot into a bar chart in this dashboard component”)
+
+[//]: # (- “/edit rewrite this function to be async”)
+
+[//]: # ()
+[//]: # (![Above line edit]&#40;media/above-line-edit.gif&#41;)
+
+[//]: # ()
+[//]: # (# 🚀 Generate files from scratch)
+
+[//]: # ()
+[//]: # (![Generate files from scratch]&#40;media/scratch.gif&#41;)
+
+[//]: # ()
+[//]: # (Open a blank file, <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>, and let Continue start new Python scripts, React components, etc.)
+
+[//]: # ()
+[//]: # (- “here is a connector for postgres, now write one for kafka”)
+
+[//]: # (- “make an IAM policy that creates a user with read-only access to S3”)
+
+[//]: # (- “use this schema to write me a SQL query that gets recently churned users”)
+
+[//]: # ()
+[//]: # (# Getting Started)
+
+[//]: # ()
+[//]: # (You can try out Continue for free using a proxy server that securely makes calls with our API key to models like GPT-4, Gemini Pro, and Phind CodeLlama via OpenAI, Google, and Together respectively.)
+
+[//]: # ()
+[//]: # (Once you're ready to use your own API key or a different model / provider, press the `+` button in the bottom left to add a new model to your `config.json`. Learn more about the models and providers [here]&#40;https://continue.dev/docs/model-setup/overview&#41;.)
+
+[//]: # ()
+[//]: # (## License)
+
+[//]: # ()
+[//]: # ([Apache 2.0 © 2023 Continue Dev, Inc.]&#40;./LICENSE&#41;)

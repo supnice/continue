@@ -1,7 +1,7 @@
 {
   "name": "continue",
-  "icon": "media/icon.png",
-  "version": "0.8.22",
+  "icon": "media/tielu-logo.png",
+  "version": "0.8.29",
   "repository": {
     "type": "git",
     "url": "https://github.com/continuedev/continue"
@@ -17,10 +17,10 @@
   "homepage": "https://continue.dev",
   "qna": "https://github.com/continuedev/continue/issues/new/choose",
   "license": "Apache-2.0",
-  "displayName": "Continue - Claude, CodeLlama, GPT-4, and more",
+  "displayName": "Xiaotie - Chat, Code, and more",
   "pricing": "Free",
-  "description": "Open-source autopilot for software development - bring the power of ChatGPT to your IDE",
-  "publisher": "Continue",
+  "description": "Autopilot for software development - bring the power of GPT to your IDE",
+  "publisher": "12306",
   "engines": {
     "vscode": "^1.70.0",
     "node": ">=20.11.0"
@@ -52,22 +52,22 @@
   "browser": "./out/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Continue",
+      "title": "Xiaotie",
       "properties": {
         "continue.telemetryEnabled": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Continue collects anonymous usage data, cleaned of PII, to help us improve the product for our users. Read more  at [continue.dev › Telemetry](https://continue.dev/docs/telemetry)."
+          "markdownDescription": "Xiaotie collects anonymous usage data, cleaned of PII, to help us improve the product for our users. "
         },
         "continue.showInlineTip": {
           "type": "boolean",
           "default": true,
-          "description": "Show inline suggestion to use the Continue keyboard shortcuts (e.g. \"Cmd/Ctrl L to select code, Cmd/Ctrl I to edit\")."
+          "description": "Show inline suggestion to use the Xiaotie keyboard shortcuts (e.g. \"Cmd/Ctrl L to select code, Cmd/Ctrl I to edit\")."
         },
         "continue.enableTabAutocomplete": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Enable Continue's tab autocomplete feature. Read our walkthrough to learn about configuration and how to share feedback: [continue.dev › Walkthrough: Tab Autocomplete](https://continue.dev/docs/walkthroughs/tab-autocomplete)"
+          "markdownDescription": "Enable Xiaotie's tab autocomplete feature."
         },
         "continue.remoteConfigServerUrl": {
           "type": "string",
@@ -89,109 +89,109 @@
     "commands": [
       {
         "command": "continue.acceptDiff",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Accept Diff",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.rejectDiff",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Reject Diff",
-        "group": "Continue",
+        "group": "Xiaotie",
         "icon": "$(stop)"
       },
       {
         "command": "continue.quickEdit",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Quick Edit",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.toggleAuxiliaryBar",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Toggle Right Sidebar",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.focusContinueInput",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Add Highlighted Code to Context",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.focusContinueInputWithoutClear",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Add Highlighted Code to Context",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.debugTerminal",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Debug Terminal",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.toggleFullScreen",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Toggle Full Screen",
         "icon": "$(fullscreen)",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.shareSession",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Share Session",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.selectFilesAsContext",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Continue: Select Files as Context",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.newSession",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "New Session",
         "icon": "$(add)",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.viewHistory",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "View History",
         "icon": "$(history)",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.writeCommentsForCode",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Write Comments for this Code",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.writeDocstringForCode",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Write a Docstring for this Code",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.fixCode",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Fix this Code",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.optimizeCode",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Optimize this Code",
-        "group": "Continue"
+        "group": "Xiaotie"
       },
       {
         "command": "continue.fixGrammar",
-        "category": "Continue",
+        "category": "Xiaotie",
         "title": "Fix Grammar / Spelling",
-        "group": "Continue"
+        "group": "Xiaotie"
       }
     ],
     "keybindings": [
@@ -246,7 +246,7 @@
     "submenus": [
       {
         "id": "continue.continueSubMenu",
-        "label": "Continue"
+        "label": "Xiaotie"
       }
     ],
     "menus": {
@@ -288,29 +288,29 @@
       "editor/title/run": [
         {
           "command": "continue.rejectDiff",
-          "group": "Continue",
+          "group": "Xiaotie",
           "when": "continue.streamingDiff"
         }
       ],
       "continue.continueSubMenu": [
         {
           "command": "continue.focusContinueInputWithoutClear",
-          "group": "Continue",
+          "group": "Xiaotie",
           "when": "editorHasSelection"
         },
         {
           "command": "continue.writeCommentsForCode",
-          "group": "Continue",
+          "group": "Xiaotie",
           "when": "editorHasSelection"
         },
         {
           "command": "continue.writeDocstringForCode",
-          "group": "Continue",
+          "group": "Xiaotie",
           "when": "editorHasSelection"
         },
         {
           "command": "continue.fixCode",
-          "group": "Continue",
+          "group": "Xiaotie",
           "when": "editorHasSelection"
         },
         {
@@ -320,7 +320,7 @@
         },
         {
           "command": "continue.fixGrammar",
-          "group": "Continue",
+          "group": "Xiaotie",
           "when": "editorHasSelection && editorLangId == 'markdown'"
         }
       ],
@@ -359,8 +359,8 @@
       "activitybar": [
         {
           "id": "continue",
-          "title": "Continue",
-          "icon": "media/continue-dev-square.png"
+          "title": "Xiaotie",
+          "icon": "media/tielu-logo.png"
         }
       ]
     },
@@ -378,12 +378,12 @@
       {
         "id": "continue",
         "title": "Getting Started",
-        "description": "Learn how to use Continue",
+        "description": "Learn how to use Xiaotie",
         "steps": [
           {
             "id": "edit",
             "title": "Edit in natural language",
-            "description": "Highlight a section of code and instruct Continue to refactor it (e.g. `/edit rewrite this function to be async`)",
+            "description": "Highlight a section of code and instruct Xiaotie to refactor it (e.g. `/edit rewrite this function to be async`)",
             "media": {
               "image": "media/edit.png",
               "altText": "Empty image"
@@ -393,7 +393,7 @@
           {
             "id": "explain",
             "title": "Get possible explanations",
-            "description": "Ask Continue about a part of your code to get another perspective (e.g. `where in the page should I be making this request to the backend?`)",
+            "description": "Ask Xiaotie about a part of your code to get another perspective (e.g. `where in the page should I be making this request to the backend?`)",
             "media": {
               "image": "media/explain.png",
               "altText": "Empty image"
@@ -403,7 +403,7 @@
           {
             "id": "generate",
             "title": "Generate files from scratch",
-            "description": "Let Continue build the scaffolding of Python scripts, React components, and more (e.g. `/edit here is a connector for postgres, now write one for kafka`)",
+            "description": "Let Xiaotie build the scaffolding of Python scripts, React components, and more (e.g. `/edit here is a connector for postgres, now write one for kafka`)",
             "media": {
               "image": "media/generate.png",
               "altText": "Empty image"

@@ -41,6 +41,7 @@ import {
 import { RootState } from "../redux/store";
 import { getMetaKeyLabel, isMetaEquivalentKeyPressed } from "../util";
 import { isJetBrains } from "../util/ide";
+import XtApiKeyDialog from "../components/dialogs/XtApiKeyDialog";
 
 const TopGuiDiv = styled.div`
   overflow-y: scroll;
@@ -225,6 +226,7 @@ function GUI(props: GUIProps) {
 
   const sendInput = useCallback(
     (editorState: JSONContent) => {
+      // 免费使用次数限制，暂时注释掉，后续可用于12306用户首次输入apikey
       if (defaultModel?.provider === "free-trial") {
         const ftc = localStorage.getItem("ftc");
         if (ftc) {
@@ -242,6 +244,15 @@ function GUI(props: GUIProps) {
         }
       }
 
+      // 首次使用小铁GPT时需输入apiKey
+      if (defaultModel?.title === "xiaotie-chat" || defaultModel?.title === "xiaotie-code") {
+        if (defaultModel?.apiKey === undefined || defaultModel?.apiKey === null || defaultModel?.apiKey === "") {
+          dispatch(setShowDialog(true));
+          dispatch(setDialogMessage(<XtApiKeyDialog />));
+          return;
+        }
+      }
+
       streamResponse(editorState);
 
       // Increment localstorage counter for popup
@@ -256,7 +267,7 @@ function GUI(props: GUIProps) {
           dispatch(
             setDialogMessage(
               <div className="text-center p-4">
-                👋 Thanks for using Continue. We are a beta product and love
+                👋 Thanks for using Xiaotie. We are a beta product and love
                 working closely with our first users. If you're interested in
                 speaking, enter your name and email. We won't use this
                 information for anything other than reaching out.

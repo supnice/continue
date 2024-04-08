@@ -271,7 +271,7 @@ function ModelSelect(props: {}) {
                         option={option}
                         idx={idx}
                         key={idx}
-                        showDelete={options.length > 1}
+                        showDelete={options.length > 10}
                       />
                     ))}
                     {options.length === 0 && <i>No models found</i>}
@@ -285,13 +285,13 @@ function ModelSelect(props: {}) {
           </div>
         </StyledListbox>
 
-        <StyledPlusIcon
-          width="1.3em"
-          height="1.3em"
-          onClick={() => {
-            navigate("/models");
-          }}
-        />
+        {/*<StyledPlusIcon*/}
+        {/*  width="1.3em"*/}
+        {/*  height="1.3em"*/}
+        {/*  onClick={() => {*/}
+        {/*    navigate("/models");*/}
+        {/*  }}*/}
+        {/*/>*/}
       </GridDiv>
     </>
   );

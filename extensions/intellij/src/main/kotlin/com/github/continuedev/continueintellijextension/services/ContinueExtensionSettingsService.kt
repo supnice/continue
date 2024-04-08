@@ -133,6 +133,6 @@ class ContinueExtensionConfigurable : Configurable {
     }
 
     override fun getDisplayName(): String {
-        return "Continue Extension Settings"
+        return "Xiaotie Extension Settings"
     }
 }

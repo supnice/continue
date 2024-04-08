@@ -432,7 +432,25 @@ class IdeProtocolClient (
                         }
                         configUpdate()
                     }
-
+                    "addXtGptApiKey" -> {
+                        val updatedConfig = editConfigJson { config ->
+                            val data = data as Map<String, Any>
+                            val key = data["key"] as String
+                            var models = config["models"] as MutableList<MutableMap<String, Any>>
+                            models = models.map {
+                                if (it["title"] == "xiaotie-chat" || it["title"] == "xiaotie-code") {
+                                    it["apiKey"] = key
+//                                    it["provider"] = "openai"
+                                    it
+                                } else {
+                                    it
+                                }
+                            }.toMutableList()
+                            config["models"] = models
+                            config
+                        }
+                        configUpdate()
+                    }
 
 
                     else -> {

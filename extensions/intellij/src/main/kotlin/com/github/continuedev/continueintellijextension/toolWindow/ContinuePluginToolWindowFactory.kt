@@ -64,6 +64,7 @@ class ContinuePluginToolWindowFactory : ToolWindowFactory, DumbAware {
                     "config/addModel",
                     "config/deleteModel",
                     "config/addOpenAIKey",
+                    "config/addXtGptApiKey",
                     "llm/streamComplete",
                     "llm/streamChat",
                     "llm/complete",
@@ -99,7 +100,7 @@ class ContinuePluginToolWindowFactory : ToolWindowFactory, DumbAware {
             if (false) {
                 browser.loadURL("http://localhost:5173/jetbrains_index.html");
             } else {
-                browser.loadURL("http://continue/index.html")
+                browser.loadURL("http://xiaotie/index.html")
             }
 //            browser.loadHTML("<html><body><input type='text'/></body></html>")
 //            browser.loadURL("http://localhost:5173/index.html")
@@ -148,7 +149,7 @@ class ContinuePluginToolWindowFactory : ToolWindowFactory, DumbAware {
                                     "windowId" to continuePluginService.windowId,
                                     "workspacePaths" to continuePluginService.workspacePaths,
                                     "vscMachineId" to getMachineUniqueID(),
-                                    "vscMediaUrl" to "http://continue",
+                                    "vscMediaUrl" to "http://xiaotie",
                             )
                             respond(jsonData)
                         }
@@ -244,7 +245,7 @@ class ContinuePluginToolWindowFactory : ToolWindowFactory, DumbAware {
         private fun registerAppSchemeHandler() {
             CefApp.getInstance().registerSchemeHandlerFactory(
                     "http",
-                    "continue",
+                    "xiaotie",
                     CustomSchemeHandlerFactory()
             )
         }

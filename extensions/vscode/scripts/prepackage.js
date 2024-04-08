@@ -268,6 +268,7 @@ if (args[2] === "--target") {
         "linux-arm64": "@lancedb/vectordb-linux-arm64-gnu",
       }[target];
       execSync(`npm install -f ${packageToInstall} --no-save`);
+      // execSync(`yarn add ${packageToInstall} --force --ignore-optional`);
     }
 
     // Download and unzip esbuild

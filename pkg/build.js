@@ -6,6 +6,8 @@ const ncp = require("ncp").ncp;
 const esbuildOutputFile = "out/index.js";
 const platforms = ["darwin", "linux", "win32"];
 const architectures = ["x64", "arm64"];
+// const platforms = ["win32"];
+// const architectures = ["x64"];
 let targets = platforms.flatMap((platform) =>
   architectures.map((arch) => `${platform}-${arch}`),
 );
@@ -29,8 +31,8 @@ const targetToLanceDb = {
 };
 
 (async () => {
-  //   console.log("[info] Building with ncc...");
-  //   execSync(`npx ncc build src/index.ts -o out`);
+    // console.log("[info] Building with ncc...");
+    // execSync(`npx ncc build src/index.ts -o out`);
 
   // Copy node_modules for pre-built binaries
   const DYNAMIC_IMPORTS = [
@@ -81,6 +83,7 @@ const targetToLanceDb = {
     if (targetToLanceDb[target]) {
       console.log(`[info] Downloading ${target}...`);
       execSync(`npm install -f ${targetToLanceDb[target]} --no-save`);
+      // execSync(`yarn add ${targetToLanceDb[target]} --force --ignore-optional`);
     }
   }
 
@@ -120,7 +123,7 @@ const targetToLanceDb = {
     const targetDir = `bin/${target}`;
     console.log(`[info] Building ${target}...`);
     execSync(
-      `npx pkg --no-bytecode --public-packages "*" --public pkgJson/${target} --out-path ${targetDir}`,
+      `yarn pkg --no-bytecode --public-packages "*" --public pkgJson/${target} --out-path ${targetDir}`,
     );
 
     // Download and unzip prebuilt sqlite3 binary for the target

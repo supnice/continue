@@ -27,7 +27,7 @@ The `~/.continue` directory contains a `config.json` file that looks like this:
 
 ```json title="~/.continue/config.json"
 {
-    "allowAnonymousTelemetry": true,
+    "allowAnonymousTelemetry": false,
     ...
 }
 ```

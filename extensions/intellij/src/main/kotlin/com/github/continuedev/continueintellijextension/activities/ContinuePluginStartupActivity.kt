@@ -38,7 +38,7 @@ class WelcomeDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     init {
         init()
-        title = "Welcome to Continue"
+        title = "Welcome to Xiaotie"
     }
 
     override fun doOKAction() {
@@ -55,7 +55,7 @@ class WelcomeDialogWrapper(val project: Project) : DialogWrapper(true) {
         val paragraph = JLabel()
         val shortcutKey = if (System.getProperty("os.name").toLowerCase().contains("mac")) "⌘" else "⌃"
         paragraph.text = """
-            <html>Welcome! You can access Continue from the right side panel by clicking on the logo.<br><br>
+            <html>Welcome! You can access Xiaotie from the right side panel by clicking on the logo.<br><br>
             
             To <b>ask a question</b> about a piece of code: highlight it, use <b>$shortcutKey J</b> to select the code and focus the input box, then ask your question.<br><br>
             To generate an <b>inline edit</b>: highlight the code you want to edit, use <b>$shortcutKey ⇧ J</b>, then type your requested edit.</html>""".trimIndent()
@@ -69,7 +69,7 @@ class WelcomeDialogWrapper(val project: Project) : DialogWrapper(true) {
 
     override fun createActions(): Array<Action> {
         val okAction = getOKAction()
-        okAction.putValue(Action.NAME, "Open Continue")
+        okAction.putValue(Action.NAME, "Open Xiaotie")
 
         val cancelAction = getCancelAction()
         cancelAction.putValue(Action.NAME, "Cancel")

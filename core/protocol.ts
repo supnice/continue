@@ -32,6 +32,7 @@ export type Protocol = {
   "history/save": [PersistedSessionInfo, void];
   "devdata/log": [{ tableName: string; data: any }, void];
   "config/addOpenAiKey": [string, void];
+  "config/addXtGptApiKey": [string, void];
   "config/addModel": [
     { model: SerializedContinueConfig["models"][number] },
     void,

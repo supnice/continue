@@ -1,5 +1,6 @@
 import {
   Cog6ToothIcon,
+  CursorArrowRaysIcon,
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
@@ -17,6 +18,7 @@ import { defaultModelSelector } from "../redux/selectors/modelSelectors";
 import {
   setBottomMessage,
   setBottomMessageCloseTimeout,
+  setDialogMessage,
   setShowDialog,
 } from "../redux/slices/uiStateSlice";
 import { RootState } from "../redux/store";
@@ -27,6 +29,7 @@ import TextDialog from "./dialogs";
 import IndexingProgressBar from "./loaders/IndexingProgressBar";
 import ProgressBar from "./loaders/ProgressBar";
 import ModelSelect from "./modelSelection/ModelSelect";
+import XtApiKeyDialog from "./dialogs/XtApiKeyDialog";
 
 // #region Styled Components
 const FOOTER_HEIGHT = "1.8em";
@@ -262,14 +265,25 @@ const Layout = () => {
               <QuestionMarkCircleIcon width="1.4em" height="1.4em" />
             </HeaderButtonWithText>
             <HeaderButtonWithText
-              onClick={() => {
-                // navigate("/settings");
-                postToIde("openConfigJson", undefined);
-              }}
-              text="Config"
+                onClick={() => {
+                  // navigate("/settings");
+                  // postToIde("openConfigJson", undefined);
+                  dispatch(setShowDialog(true));
+                  dispatch(setDialogMessage(<XtApiKeyDialog />));
+                }}
+                text="ApiKey"
             >
-              <Cog6ToothIcon width="1.4em" height="1.4em" />
+              <CursorArrowRaysIcon width="1.4em" height="1.4em" />
             </HeaderButtonWithText>
+            {/*<HeaderButtonWithText*/}
+            {/*  onClick={() => {*/}
+            {/*    // navigate("/settings");*/}
+            {/*    postToIde("openConfigJson", undefined);*/}
+            {/*  }}*/}
+            {/*  text="Config"*/}
+            {/*>*/}
+            {/*  <Cog6ToothIcon width="1.4em" height="1.4em" />*/}
+            {/*</HeaderButtonWithText>*/}
           </Footer>
         </GridDiv>
 

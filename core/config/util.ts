@@ -30,6 +30,19 @@ export function addOpenAIKey(key: string) {
   });
 }
 
+export function addXtGptApiKey(key: string) {
+  editConfigJson((config) => {
+    config.models = config.models.map((m: ModelDescription) => {
+      if (m.title === "xiaotie-chat" || m.title === "xiaotie-code") {
+        m.apiKey = key;
+        // m.provider = "openai";
+      }
+      return m;
+    });
+    return config;
+  });
+}
+
 export function deleteModel(title: string) {
   editConfigJson((config) => {
     config.models = config.models.filter((m: any) => m.title !== title);

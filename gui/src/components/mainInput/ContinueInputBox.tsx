@@ -117,7 +117,7 @@ function ContinueInputBox(props: ContinueInputBoxProps) {
           ></TipTapEditor>
         </GradientBorder>
       </div>
-      <ContextItemsPeek contextItems={props.contextItems}></ContextItemsPeek>
+      {/*<ContextItemsPeek contextItems={props.contextItems}></ContextItemsPeek>*/}
     </div>
   );
 }

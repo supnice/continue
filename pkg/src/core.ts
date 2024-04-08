@@ -1,7 +1,7 @@
 import { ContextItemId, IDE } from "core";
 import { CompletionProvider } from "core/autocomplete/completionProvider";
 import { ConfigHandler } from "core/config/handler";
-import { addModel, addOpenAIKey, deleteModel } from "core/config/util";
+import { addModel, addOpenAIKey, deleteModel, addXtGptApiKey } from "core/config/util";
 import { indexDocs } from "core/indexing/docs";
 import TransformersJsEmbeddingsProvider from "core/indexing/embeddings/TransformersJsEmbeddingsProvider";
 import { CodebaseIndexer, PauseToken } from "core/indexing/indexCodebase";
@@ -105,6 +105,9 @@ export class Core {
     });
     on("config/addOpenAiKey", (msg) => {
       addOpenAIKey(msg.data);
+    });
+    on("config/addXtGptApiKey", (msg) => {
+      addXtGptApiKey(msg.data);
     });
     on("config/deleteModel", (msg) => {
       deleteModel(msg.data.title);

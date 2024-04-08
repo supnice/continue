@@ -1,6 +1,6 @@
 import { ContextItemId, IDE } from "core";
 import { ConfigHandler } from "core/config/handler";
-import { addModel, addOpenAIKey, deleteModel } from "core/config/util";
+import { addModel, addOpenAIKey, deleteModel, addXtGptApiKey } from "core/config/util";
 import { indexDocs } from "core/indexing/docs";
 import TransformersJsEmbeddingsProvider from "core/indexing/embeddings/TransformersJsEmbeddingsProvider";
 import { logDevData } from "core/util/devdata";
@@ -305,6 +305,10 @@ export class VsCodeWebviewProtocol {
     });
     this.on("config/addOpenAiKey", async (msg) => {
       addOpenAIKey(msg.data);
+      this.configHandler.reloadConfig();
+    });
+    this.on("config/addXtGptApiKey", async (msg) => {
+      addXtGptApiKey(msg.data);
       this.configHandler.reloadConfig();
     });
 
