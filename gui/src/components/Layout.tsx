@@ -23,7 +23,8 @@ import {
 } from "../redux/slices/uiStateSlice";
 import { RootState } from "../redux/store";
 import { getFontSize, isMetaEquivalentKeyPressed } from "../util";
-import { postToIde } from "../util/ide";
+import { isJetBrains, postToIde } from "../util/ide";
+import { getLocalStorage } from "../util/localStorage";
 import HeaderButtonWithText from "./HeaderButtonWithText";
 import TextDialog from "./dialogs";
 import IndexingProgressBar from "./loaders/IndexingProgressBar";
@@ -180,6 +181,21 @@ const Layout = () => {
     setIndexingTask(data.desc);
   });
 
+  useEffect(() => {
+    const onboardingComplete = getLocalStorage("onboardingComplete");
+    if (
+      !onboardingComplete &&
+      !location.pathname.startsWith("/onboarding") &&
+      !location.pathname.startsWith("/existingUserOnboarding")
+    ) {
+      if (getLocalStorage("mainTextEntryCounter")) {
+        navigate("/existingUserOnboarding");
+      } else {
+        navigate("/onboarding");
+      }
+    }
+  }, [location]);
+
   const [indexingProgress, setIndexingProgress] = useState(1);
   const [indexingTask, setIndexingTask] = useState("Indexing Codebase");
 
@@ -248,7 +264,7 @@ const Layout = () => {
                   />
                 )}
 
-              {indexingProgress < 1 && (
+              {isJetBrains() || (
                 <IndexingProgressBar
                   currentlyIndexing={indexingTask}
                   completed={indexingProgress * 100}

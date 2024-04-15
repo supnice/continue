@@ -52,9 +52,9 @@ export const defaultConfig: SerializedContinueConfig = {
     { name: "codebase", params: {} },
   ],
   tabAutocompleteModel: {
-    title: "Starcoder 3b",
+    title: "Starcoder2 3b",
     provider: "ollama",
-    model: "starcoder-3b",
+    model: "starcoder2:3b",
   },
 };
 
@@ -101,7 +101,9 @@ export const defaultConfigJetBrains: SerializedContinueConfig = {
       params: {},
     },
   ],
-  ui: {
-    codeBlockToolbarPosition: "top",
-  }
+  tabAutocompleteModel: {
+    title: "Starcoder2 3b",
+    provider: "ollama",
+    model: "starcoder2:3b",
+  },
 };
