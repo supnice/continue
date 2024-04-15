@@ -4,6 +4,7 @@ import {
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline";
 import { JSONContent } from "@tiptap/react";
+import { InputModifiers } from "core";
 import { usePostHog } from "posthog-js/react";
 import {
   Fragment,
@@ -28,6 +29,7 @@ import FTCDialog from "../components/dialogs/FTCDialog";
 import StepContainer from "../components/gui/StepContainer";
 import TimelineItem from "../components/gui/TimelineItem";
 import ContinueInputBox from "../components/mainInput/ContinueInputBox";
+import { defaultInputModifiers } from "../components/mainInput/inputModifiers";
 import useChatHandler from "../hooks/useChatHandler";
 import useHistory from "../hooks/useHistory";
 import { useWebviewListener } from "../hooks/useWebviewListener";
@@ -41,6 +43,7 @@ import {
 import { RootState } from "../redux/store";
 import { getMetaKeyLabel, isMetaEquivalentKeyPressed } from "../util";
 import { isJetBrains } from "../util/ide";
+import { getLocalStorage, setLocalStorage } from "../util/localStorage";
 import XtApiKeyDialog from "../components/dialogs/XtApiKeyDialog";
 
 const TopGuiDiv = styled.div`
@@ -79,15 +82,16 @@ const StepsDiv = styled.div`
     position: relative;
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    height: calc(100% - 12px);
-    border-left: 2px solid ${lightGray};
-    left: 28px;
-    z-index: 0;
-    bottom: 12px;
-  }
+  // Gray, vertical line on the left ("thread")
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   height: calc(100% - 12px);
+  //   border-left: 2px solid ${lightGray};
+  //   left: 28px;
+  //   z-index: 0;
+  //   bottom: 12px;
+  // }
 `;
 
 const NewSessionButton = styled.div`
@@ -225,7 +229,7 @@ function GUI(props: GUIProps) {
   const { streamResponse } = useChatHandler(dispatch);
 
   const sendInput = useCallback(
-    (editorState: JSONContent) => {
+    (editorState: JSONContent, modifiers: InputModifiers) => {
       // 免费使用次数限制，暂时注释掉，后续可用于12306用户首次输入apikey
       if (defaultModel?.provider === "free-trial") {
         const ftc = localStorage.getItem("ftc");
@@ -244,6 +248,7 @@ function GUI(props: GUIProps) {
         }
       }
 
+      streamResponse(editorState, modifiers);
       // 首次使用小铁GPT时需输入apiKey
       if (defaultModel?.title === "xiaotie-chat" || defaultModel?.title === "xiaotie-code") {
         if (defaultModel?.apiKey === undefined || defaultModel?.apiKey === null || defaultModel?.apiKey === "") {
@@ -253,16 +258,10 @@ function GUI(props: GUIProps) {
         }
       }
 
-      streamResponse(editorState);
-
       // Increment localstorage counter for popup
-      const counter = localStorage.getItem("mainTextEntryCounter");
-      if (counter) {
-        let currentCount = parseInt(counter);
-        localStorage.setItem(
-          "mainTextEntryCounter",
-          (currentCount + 1).toString(),
-        );
+      const currentCount = getLocalStorage("mainTextEntryCounter");
+      if (currentCount) {
+        setLocalStorage("mainTextEntryCounter", currentCount + 1);
         if (currentCount === 300) {
           dispatch(
             setDialogMessage(
@@ -326,7 +325,7 @@ function GUI(props: GUIProps) {
           dispatch(setShowDialog(true));
         }
       } else {
-        localStorage.setItem("mainTextEntryCounter", "1");
+        setLocalStorage("mainTextEntryCounter", 1);
       }
     },
     [
@@ -379,8 +378,8 @@ function GUI(props: GUIProps) {
                   >
                     {item.message.role === "user" ? (
                       <ContinueInputBox
-                        onEnter={async (editorState) => {
-                          streamResponse(editorState, index);
+                        onEnter={async (editorState, modifiers) => {
+                          streamResponse(editorState, modifiers, index);
                         }}
                         isLastUserInput={isLastUserInput(index)}
                         isMainInput={false}
@@ -428,7 +427,23 @@ function GUI(props: GUIProps) {
                           onUserInput={(input: string) => {}}
                           item={item}
                           onReverse={() => {}}
-                          onRetry={() => {}}
+                          onRetry={() => {
+                            streamResponse(
+                              state.history[index - 1].editorState,
+                              state.history[index - 1].modifiers ??
+                                defaultInputModifiers,
+                              index - 1,
+                            );
+                          }}
+                          onContinueGeneration={() => {
+                            window.postMessage(
+                              {
+                                messageType: "userInput",
+                                data: { input: "Keep going" },
+                              },
+                              "*",
+                            );
+                          }}
                           onDelete={() => {}}
                         />
                       </TimelineItem>
@@ -440,7 +455,9 @@ function GUI(props: GUIProps) {
           </StepsDiv>
 
           <ContinueInputBox
-            onEnter={sendInput}
+            onEnter={(editorContent, modifiers) => {
+              sendInput(editorContent, modifiers);
+            }}
             isLastUserInput={false}
             isMainInput={true}
             hidden={active}
